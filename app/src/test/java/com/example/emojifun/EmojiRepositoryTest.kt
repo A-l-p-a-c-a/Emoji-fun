@@ -1,9 +1,4 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a//dev/null b/app/src/test/java/com/example/emojifun/EmojiRepositoryTest.kt
-index 0000000000000000000000000000000000000000..51db877f964bd346f324c073d0446e4d730a5653 100644
---- a//dev/null
-+++ b/app/src/test/java/com/example/emojifun/EmojiRepositoryTest.kt
-@@ -0,0 +1,56 @@
+
 +package com.example.emojifun
 +
 +import kotlinx.coroutines.test.runTest
