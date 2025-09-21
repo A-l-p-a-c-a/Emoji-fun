@@ -1,0 +1,481 @@
+"💪": "Strength & Power",
+  "🔥": "Energy, Passion, Determination",
+  "🖤": "Boldness, Toughness, Silent Strength",
+  "🎨": "Artistic Expression, Painting, Design",
+  "✨": "Inspiration, New Ideas, Fresh Concepts",
+  "🖌️": "Writing, Drawing, Creative Focus",
+  "🧠": "Deep Thought, Insight, Mental Clarity",
+  "🔍": "Searching for Answers, Curiosity",
+  "⏳": "Time, Patience, Remembering Past Events",
+  "🛡️": "Protection, Endurance, Standing Guard",
+  "🌙": "Darkness Before Light, Overcoming Struggles",
+  "🌿": "Growth, Healing, Renewal",
+  "🦉": "Wisdom, Night Knowledge, Quiet Understanding",
+  "🌌": "The Unknown, Vast Exploration",
+  "⚔️": "Battle, Challenge, Overcoming Adversity",
+  "🩸": "Blood, Sacrifice, Struggle",
+  "🕷️": "Web of Challenges, Entanglement, Obstacles",
+  "🌟": "Hope, Clarity, Positive Energy",
+  "🕯️": "Finding Direction, Perseverance",
+  "🌑": "Hidden Knowledge, Night Strength",
+  "❤️": "Love, Care, Deep Emotion",
+  "💕": "Growing Love, New Bonds",
+  "💛": "Healing, Compassion, Warmth",
+  "👻": "Ghosts, Memories, Lingering Fears",
+  "🔮": "Uncertainty, The Unknown",
+  "🎉": "Celebration, Milestones, Achievements",
+  "🏆": "Victory, Reward",
+  "🌼": "Calmness, Patience, Inner Peace",
+  "💖": "Healing Love, Serenity",
+  "☁️": "Softness, Gentleness, Light Thoughts",
+  "⚠️": "Caution, Be Alert",
+  "💀": "Danger, Mortality, Finality",
+  "⏰": "Urgency, Moments Passing",
+  "🥒": "Destiny, Future, What’s to Come",
+ "✊":  "Inner strength, resilience, confidence", 
+"🔥":  "Energy, passion, determination; fighting spirit",
+:❤️‍🔥":  "Intense power, drive, unstoppable",
+:🖤":  "Boldness, toughness, silent strength, hidden truths",
+"⚡":  "Quick thinking, sharpness, striking impact",
+"🎨":  "Artistic expression, painting, design",
+"✨":  "Inspiration, new ideas, fresh concepts",
+"🧵":  "Crafting, detailed creation, precision",
+"🧠":  "Deep thought, insight, mental clarity",
+"🔍":  "Searching for answers, curiosity",
+"⏳":  "Time, patience, remembering past events",
+"🕰️":  "Reflection, moments from the past",
+"🛡️":  "Protection, endurance, standing guard",
+"🌙":  "Darkness before light, overcoming struggles, shadow work",
+"🌿":  "Growth, healing, renewal",
+"🍃":  "Growth, healing, renewal",
+"🌸":  "Rebirth, new beginnings, blossoming",
+"🦉":  "Wisdom, night knowledge, quiet understanding",
+"🌌":  "The unknown, the universe, vast exploration",
+"🐍":  "Secrets, stealth, silent power",
+"⚔️":  "Battle, challenge, overcoming adversity",
+"🕷️":  "Web of challenges, entanglement, obstacles",
+"☀️":  "Hope, clarity, positive energy",
+"🌟":  "Success, goals, wishes coming true",
+"🕯️":  "Small lights, finding direction, perseverance",
+"🌑":  "Dark places, hidden knowledge, night strength",
+"🦋":  "Transformation, lightness after dark",
+"🍀":  Good luck, positive vibes",
+"🧿":  "Protection, guarding against negativity",
+"🐞":  "Fortune, positive change",
+"🌈":  "Promise, hope, rare opportunity",
+"❤️":  "Love, care, deep emotion",
+"💕":  "Growing love, new bonds",
+"💛":  "Healing, compassion, warmth",
+"💖":  "Healing love, serenity",
+"👻":  "Ghosts, memories, lingering fears",
+"🔮":  "Uncertainty, the unknown",
+"🎉":  "Celebration, milestones, achievements",
+"🏆":  "Victory, reward, overcoming "challenges",
+"🌼":  "Calmness, patience, inner peace",
+"☁️":  "Softness, gentleness, light thoughts",
+"⚠️":  "Caution, be alert",
+"💀":  "Danger, mortality, finality",
+"⏰":  "Urgency, moments passing",
+"🕛":  "Time-bound events, schedules",
+"🥒":  "Destiny, future, what’s to come",0j
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+🖌️ / ✍️  Writing, drawing, creative focus
+
+
+💧 / 🩸  Blood, sacrifice, struggle
+
+
+❤️‍🔪  Deep emotional strength, hidden truths
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const emojiDictionary = {
+  // Image 1
+  "👷‍♂️": "Man Construction Worker",
+  "👷‍♀️": "Woman Construction Worker",
+  "🤴": "Prince",
+  "👸": "Princess",
+  "🧕": "Woman with Headscarf",
+  "👳‍♂️": "Man with Turban",
+  "👲": "Man with Chinese Cap",
+  "🧑‍⚕️": "Health Worker",
+  "🧑‍🎓": "Student",
+
+  // Image 2
+  "👂": "Ear",
+  "👶": "Baby",
+  "🧒": "Child",
+  "👦": "Boy",
+  "👧": "Girl",
+  "🧑": "Person",
+  "👨": "Man",
+  "👩": "Woman",
+  "🧔": "Bearded Person",
+
+  // Image 3
+  "🧓": "Older Person",
+  "👴": "Old Man",
+  "👵": "Old Woman",
+  "👨‍🦳": "Man with White Hair",
+  "👩‍🦳": "Woman with White Hair",
+  "🧑‍🦱": "Person with Curly Hair",
+  "🧑‍🦰": "Person with Red Hair",
+  "🧑‍🦲": "Person with Bald Head",
+  "🧑‍🦳": "Person with White Hair",
+
+  // Image 4
+  "🧑‍⚕️": "Health Worker",
+  "🧑‍🎓": "Student",
+  "🧑‍🏫": "Teacher",
+  "🧑‍⚖️": "Judge",
+  "🧑‍🌾": "Farmer",
+  "🧑‍🍳": "Chef",
+  "🧑‍🔧": "Mechanic",
+  "🧑‍🏭": "Factory Worker",
+  "🧑‍💼": "Office Worker",
+
+  // Image 5
+  "✊": "Raised Fist",
+  "🤛": "Left-Facing Fist",
+  "👏": "Clapping Hands",
+  "👐": "Open Hands",
+  "🤲": "Palms Up Together",
+  "🤝": "Handshake",
+  "🙏": "Praying Hands",
+  "✍️": "Writing Hand",
+  "🤞": "Crossed Fingers",
+
+  // Image 6
+  "👰": "Bride with Veil",
+  "🤰": "Pregnant Woman",
+  "🤱": "Woman Feeding Baby",
+  "👼": "Baby Angel",
+  "🎅": "Santa Claus",
+  "🤶": "Mrs. Claus",
+  "🧑‍🎄": "Mx Claus",
+  "🧑‍🤝‍🧑": "People Holding Hands",
+  "🦸‍♂️": "Man Superhero",
+
+  // Image 7
+  "🧑‍🦯": "Person with White Cane",
+  "🧑‍🦼": "Person in Motorized Wheelchair",
+  "🧑‍🦽": "Person in Manual Wheelchair",
+  "🚶": "Person Walking",
+  "🏃": "Person Running",
+  "💃": "Woman Dancing",
+  "🕺": "Man Dancing",
+  "🧍": "Person Standing",
+  "🧎": "Person Kneeling",
+
+  // Image 8
+  "🚶": "Person Walking",
+  "🧑‍🦯": "Person with White Cane",
+  "🧎": "Person Kneeling",
+  "🧑‍🦽": "Person in Manual Wheelchair",
+  "🧑‍🦼": "Person in Motorized Wheelchair",
+  "🏃": "Person Running",
+  "🧍": "Person Standing",
+  "💃": "Woman Dancing",
+  "🕺": "Man Dancing",
+
+  // Image 9
+  "👷‍♂️": "Man Construction Worker",
+  "👮‍♂️": "Man Police Officer",
+  "🕵️‍♂️": "Man Detective",
+  "💂‍♂️": "Man Guard",
+  "🧑‍🍳": "Chef",
+  "👨‍✈️": "Man Pilot",
+  "👨‍🌾": "Man Farmer",
+  "👨‍🔧": "Man Mechanic",
+  "👨‍🏫": "Man Teacher",
+
+  // Image 10
+  "🧑‍🦽": "Person in Manual Wheelchair",
+  "🚶": "Person Walking",
+  "🏃": "Person Running",
+  "🕺": "Man Dancing",
+  "💃": "Woman Dancing",
+  "🧑‍🦼": "Person in Motorized Wheelchair",
+  "🧍": "Person Standing",
+  "🧎": "Person Kneeling",
+  "🧑‍🦯": "Person with White Cane",
+
+  // Image 11
+  "🧛": "Vampire",
+  "🧜": "Merperson",
+  "🧙": "Mage",
+  "🧚": "Fairy",
+  "🧞": "Genie",
+  "🧟": "Zombie",
+  "🦸": "Superhero",
+  "🦹": "Supervillain",
+  "🧑‍🎤": "Singer",
+
+  // Image 12
+  "🦸": "Superhero",
+  "🧙": "Mage",
+  "🧚": "Fairy",
+  "🧛": "Vampire",
+  "🧜": "Merperson",
+  "🧞": "Genie",
+  "🧟": "Zombie",
+  "🦹": "Supervillain",
+  "🧑‍🎤": "Singer",
+};
+
+
+
+
+
+const emojiDictionary = {
+  // Animals (Mammals)
+  "🐵": "Monkey Face",
+  "🐒": "Monkey",
+  "🦍": "Gorilla",
+  "🦧": "Orangutan",
+  "🐶": "Dog Face",
+  "🐕": "Dog",
+  "🦮": "Guide Dog",
+  "🐕‍🦺": "Service Dog",
+  "🐩": "Poodle",
+  "🐺": "Wolf",
+  "🦊": "Fox",
+  "🦝": "Raccoon",
+  "🐱": "Cat Face",
+  "🐈": "Cat",
+  "🐈‍⬛": "Black Cat",
+  "🦁": "Lion",
+  "🐯": "Tiger Face",
+  "🐅": "Tiger",
+  "🐆": "Leopard",
+  "🐴": "Horse Face",
+  "🐎": "Horse",
+  "🦄": "Unicorn",
+  "🦓": "Zebra",
+  "🦌": "Deer",
+  "🦬": "Bison",
+  "🐮": "Cow Face",
+  "🐄": "Cow",
+  "🐂": "Ox",
+  "🐃": "Water Buffalo",
+  "🐄": "Cow",
+  "🐖": "Pig",
+  "🐗": "Boar",
+  "🐏": "Ram",
+  "🐑": "Ewe",
+  "🐐": "Goat",
+  "🦙": "Llama",
+  "🦒": "Giraffe",
+  "🐘": "Elephant",
+  "🦣": "Mammoth",
+  "🦏": "Rhinoceros",
+  "🦛": "Hippopotamus",
+  "🐭": "Mouse Face",
+  "🐁": "Mouse",
+  "🐀": "Rat",
+  "🐹": "Hamster",
+  "🐰": "Rabbit Face",
+  "🐇": "Rabbit",
+  "🐿️": "Chipmunk",
+  "🦫": "Beaver",
+  "🦔": "Hedgehog",
+  "🦇": "Bat",
+  "🐻": "Bear Face",
+  "🐻‍❄️": "Polar Bear",
+  "🐨": "Koala",
+  "🐼": "Panda",
+  "🦥": "Sloth",
+  "🦦": "Otter",
+  "🦨": "Skunk",
+  "🦘": "Kangaroo",
+  "🦡": "Badger",
+  // Animals (Birds)
+  "🐾": "Paw Prints",
+  "🦃": "Turkey",
+  "🐔": "Chicken",
+  "🐓": "Rooster",
+  "🐣": "Hatching Chick",
+  "🐤": "Baby Chick",
+  "🐥": "Front-Facing Chick",
+  "🐦": "Bird",
+  "🐧": "Penguin",
+  "🕊️": "Dove",
+  "🦅": "Eagle",
+  "🦆": "Duck",
+  "🦢": "Swan",
+  "🦉": "Owl",
+  "🦤": "Dodo",
+  "🪶": "Feather",
+  // Animals (Reptiles & Amphibians)
+  "🦩": "Flamingo",
+  "🦚": "Peacock",
+  "🦜": "Parrot",
+  "🦢": "Swan",
+  "🦉": "Owl",
+  "🦤": "Dodo",
+  "🪶": "Feather",
+  "🦩": "Flamingo",
+  "🦚": "Peacock",
+  "🦜": "Parrot",
+  "🐸": "Frog",
+  "🐊": "Crocodile",
+  "🐢": "Turtle",
+  "🦎": "Lizard",
+  "🐍": "Snake",
+  "🐲": "Dragon Face",
+  "🐉": "Dragon",
+  "🦕": "Sauropod",
+  "🦖": "T-Rex",
+  // Animals (Fish & Sea Creatures)
+  "🐳": "Spouting Whale",
+  "🐋": "Whale",
+  "🐬": "Dolphin",
+  "🦭": "Seal",
+  "🐟": "Fish",
+  "🐠": "Tropical Fish",
+  "🐡": "Blowfish",
+  "🦈": "Shark",
+  "🐙": "Octopus",
+  "🦑": "Squid",
+  "🦐": "Shrimp",
+  "🦞": "Lobster",
+  "🦀": "Crab",
+  "🐚": "Spiral Shell",
+  "🪸": "Coral",
+  // Animals (Bugs)
+  "🐌": "Snail",
+  "🦋": "Butterfly",
+  "🐛": "Bug",
+  "🐜": "Ant",
+  "🐝": "Bee",
+  "🪲": "Beetle",
+  "🐞": "Lady Beetle",
+  "🦗": "Cricket",
+  "🪳": "Cockroach",
+  "🕷️": "Spider",
+  "🕸️": "Spider Web",
+  "🦂": "Scorpion",
+  "🦟": "Mosquito",
+  "🪰": "Fly",
+  "🪱": "Worm",
+  // Plants
+  "🌵": "Cactus",
+  "🎄": "Christmas Tree",
+  "🌲": "Evergreen Tree",
+  "🌳": "Deciduous Tree",
+  "🌴": "Palm Tree",
+  "🌱": "Seedling",
+  "🌿": "Herb",
+  "☘️": "Shamrock",
+  "🍀": "Four Leaf Clover",
+  "🎍": "Pine Decoration",
+  "🪴": "Potted Plant",
+  "🎋": "Tanabata Tree",
+  "🍃": "Leaf Fluttering",
+  "🍂": "Fallen Leaf",
+  "🍁": "Maple Leaf",
+  "🍄": "Mushroom",
+  "🐚": "Spiral Shell",
+  // Flowers
+  "🌾": "Sheaf of Rice",
+  "💐": "Bouquet",
+  "🌷": "Tulip",
+  "🌹": "Rose",
+  "🥀": "Wilted Flower",
+  "🌺": "Hibiscus",
+  "🌸": "Cherry Blossom",
+  "🌼": "Blossom",
+  "🌻": "Sunflower",
+  "🌞": "Sun with Face",
+  "🌝": "Full Moon with Face",
+  "🌛": "First Quarter Moon Face",
+  "🌜": "Last Quarter Moon Face",
+  "🌚": "New Moon Face",
+  "🌕": "Full Moon",
+  "🌖": "Waning Gibbous Moon",
+  "🌗": "Last Quarter Moon",
+  "🌘": "Waning Crescent Moon",
+  "🌑": "New Moon",
+  "🌒": "Waxing Crescent Moon",
+  "🌓": "First Quarter Moon",
+  "🌔": "Waxing Gibbous Moon",
+  "🌙": "Crescent Moon",
+  "🌎": "Earth Globe Americas",
+  "🌍": "Earth Globe Europe-Africa",
+  "🌏": "Earth Globe Asia-Australia",
+  "🪐": "Ringed Planet",
+  // Weather & Sky
+  "💫": "Dizzy Symbol",
+  "⭐": "Star",
+  "🌟": "Glowing Star",
+  "✨": "Sparkles",
+  "⚡": "High Voltage",
+  "☄️": "Comet",
+  "💥": "Collision",
+  "🔥": "Fire",
+  "🌪️": "Tornado",
+  "🌈": "Rainbow",
+  "☀️": "Sun",
+  "🌤️": "Sun Behind Small Cloud",
+  "⛅": "Sun Behind Cloud",
+  "🌥️": "Sun Behind Large Cloud",
+  "☁️": "Cloud",
+  "🌦️": "Sun Behind Rain Cloud",
+  "🌧️": "Cloud with Rain",
+  "⛈️": "Cloud with Lightning and Rain",
+  "🌩️": "Cloud with Lightning",
+  "🌨️": "Cloud with Snow",
+  "❄️": "Snowflake",
+  "☃️": "Snowman",
+  "⛄": "Snowman Without Snow",
+  "🌬️": "Wind Face",
+  "💨": "Dashing Away",
+  "💧": "Droplet",
+  "💦": "Sweat Droplets",
+  "🌊": "Water Wave"
