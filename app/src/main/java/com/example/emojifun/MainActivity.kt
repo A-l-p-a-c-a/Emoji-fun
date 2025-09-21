@@ -1,4 +1,3 @@
-
 package com.example.emojifun
 
 import android.os.Bundle
@@ -218,5 +217,3 @@ private fun EmojiSearchScreenPreview() {
     }
 }
  
-EOF
-)
