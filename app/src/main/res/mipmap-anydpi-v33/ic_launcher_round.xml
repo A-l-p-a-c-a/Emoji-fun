@@ -1,0 +1,15 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a//dev/null b/app/src/main/res/mipmap-anydpi-v33/ic_launcher_round.xml
+index 0000000000000000000000000000000000000000..5c84730caa7b72dfe85126020edffbd0e39e64fa 100644
+--- a//dev/null
++++ b/app/src/main/res/mipmap-anydpi-v33/ic_launcher_round.xml
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@color/ic_launcher_background" />
++    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++    <monochrome android:drawable="@drawable/ic_launcher_foreground" />
++</adaptive-icon>
+ 
+EOF
+)
