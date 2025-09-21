@@ -15,7 +15,7 @@
  # See the License for the specific language governing permissions and
  # limitations under the License.
  #
- SPDX-License-Identifier: GNU GENERAL PUBLIC LICENSE
+ # SPDX-License-Identifier: GNU GENERAL PUBLIC LICENSE
 
  
  ##############################################################################
@@ -147,7 +147,7 @@ diff --git a/gradlew b/gradlew
 index deb506ccbaac3773ce088edf76a353a7ad0a00f4..1aa94a4269074199e6ed2c37e8db3e0826030965 undefined
 --- a/gradlew
 +++ b/gradlew
-@@ -183,70 +181,69 @@ if "$cygwin" || "$msys" ; then
+@@ -183,70 +181,69 @@ if "$cygwin" || "$msys" ; fi
                -*)   false ;;                            # don't mess with options #(
                /?*)  t=${arg#/} t=/${t%%/*}              # looks like a POSIX filepath
                      [ -e "$t" ] ;;                      #(
