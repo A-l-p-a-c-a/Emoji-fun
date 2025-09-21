@@ -1,9 +1,4 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a//dev/null b/app/build.gradle
-index 0000000000000000000000000000000000000000..783dd0a4d7cf8c6ad8dfe52e6bb4877339bcd21c 100644
---- a//dev/null
-+++ b/app/build.gradle
-@@ -0,0 +1,91 @@
+
 +plugins {
 +    id 'com.android.application'
 +    id 'org.jetbrains.kotlin.android'
