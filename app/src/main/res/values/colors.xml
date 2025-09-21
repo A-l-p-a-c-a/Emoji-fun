@@ -1,0 +1,18 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a//dev/null b/app/src/main/res/values/colors.xml
+index 0000000000000000000000000000000000000000..1bfa6a21aacd4beff3dbaf8b0a0b6c82d2066d1a 100644
+--- a//dev/null
++++ b/app/src/main/res/values/colors.xml
+@@ -0,0 +1,9 @@
++<resources>
++    <color name="purple_200">#FFBB86FC</color>
++    <color name="purple_500">#FF6200EE</color>
++    <color name="purple_700">#FF3700B3</color>
++    <color name="teal_200">#FF03DAC5</color>
++    <color name="teal_700">#FF018786</color>
++    <color name="black">#FF000000</color>
++    <color name="white">#FFFFFFFF</color>
++</resources>
+ 
+EOF
+)
