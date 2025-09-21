@@ -1,9 +1,4 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a//dev/null b/app/src/main/java/com/example/emojifun/EmojiLocalDataSource.kt
-index 0000000000000000000000000000000000000000..a0292fb48c28a3bb909933cd50b8bc964931fe93 100644
---- a//dev/null
-+++ b/app/src/main/java/com/example/emojifun/EmojiLocalDataSource.kt
-@@ -0,0 +1,65 @@
+
 +package com.example.emojifun
 +
 +import android.content.Context
