@@ -1,0 +1,95 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a//dev/null b/app/src/main/assets/emojis.json
+index 0000000000000000000000000000000000000000..3df2fb1dfc5b5f1042fe6bdf18c5bb1037e5b5d1 100644
+--- a//dev/null
++++ b/app/src/main/assets/emojis.json
+@@ -0,0 +1,86 @@
++{
++  "emojis": [
++    {
++      "char": "😀",
++      "name": "Grinning Face",
++      "keywords": ["grin", "smile", "happy", "joy"],
++      "suggestions": [
++        {
++          "label": "Big celebration",
++          "sequence": ["😀", "🥳", "🎉"],
++          "keywords": ["party", "celebrate", "birthday"]
++        },
++        {
++          "label": "Friendly hello",
++          "sequence": ["😀", "👋"],
++          "keywords": ["hello", "greeting"]
++        }
++      ]
++    },
++    {
++      "char": "🥳",
++      "name": "Partying Face",
++      "keywords": ["party", "celebration", "confetti"],
++      "suggestions": [
++        {
++          "label": "Birthday wishes",
++          "sequence": ["🥳", "🎂", "🎁"],
++          "keywords": ["birthday", "gift"]
++        }
++      ]
++    },
++    {
++      "char": "🎉",
++      "name": "Party Popper",
++      "keywords": ["celebrate", "party", "confetti"],
++      "suggestions": [
++        {
++          "label": "New year cheer",
++          "sequence": ["🎉", "🍾", "🥂"],
++          "keywords": ["new year", "cheers"]
++        }
++      ]
++    },
++    {
++      "char": "❤️",
++      "name": "Red Heart",
++      "keywords": ["love", "heart", "romance"],
++      "suggestions": [
++        {
++          "label": "Love and gratitude",
++          "sequence": ["❤️", "🙏"],
++          "keywords": ["thanks", "gratitude"]
++        },
++        {
++          "label": "Romantic evening",
++          "sequence": ["❤️", "🍷", "🌹"],
++          "keywords": ["date", "romance"]
++        }
++      ]
++    },
++    {
++      "char": "😂",
++      "name": "Face with Tears of Joy",
++      "keywords": ["funny", "lol", "joy", "tears"],
++      "suggestions": [
++        {
++          "label": "Group laughter",
++          "sequence": ["😂", "🤣", "😆"],
++          "keywords": ["laugh", "friends"]
++        }
++      ]
++    },
++    {
++      "char": "☕",
++      "name": "Hot Beverage",
++      "keywords": ["coffee", "tea", "relax"],
++      "suggestions": [
++        {
++          "label": "Morning routine",
++          "sequence": ["☕", "🌅"],
++          "keywords": ["morning", "sunrise"]
++        }
++      ]
++    }
++  ]
++}
+ 
+EOF
+)
