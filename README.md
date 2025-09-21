@@ -1,23 +1,22 @@
+# 🦄 Emoji-Fun  
+Find, sort, and express how you feel—**with only emojis.**  
 
+*Let your emojinations run wild. Muahaha.*  
 
-### 🦄 Emoji-Fun<br>
+---
 
-Find, sort, and express how you feel—**with only emojis.
+### 🌈 What is Emoji-Fun?  
+A playful app to:  
+- 🔍 Search for the perfect emoji  
+- 🎨 Sort by vibe, category, or mood  
+- 💬 Say how you feel with instant emoji combos  
 
+---
 
-#### 🌈 What is Emoji-Fun?
-
-<ul><li>A playful app to:
-
-  🔍 Search for the perfect emoji
-
-  🎨 Sort by vibe, category, or mood
-
-  💬 Say how you feel with instant emoji combos</ul></li><br><br><br>
-
-
-
-
+### 🤝 Meet the Crew  
+Every smiley has a real name: Bob, Glenda, Jim, Burt…  
+And sometimes, you’ll bump into a 🍀🕶️💰🔫 = “Gangster Leprechaun.”  
+Yeah. You never know.
 
 
 > ✨ Why use Emoji-Fun?
@@ -43,10 +42,8 @@ git clone https://github.com/A-l-p-a-c-a/Emoji-fun.git
 ```
 ./gradlew assembleDebug
 ```
-3. Run it, and let your emojinations run wild!
-Also get to meet each smiley by their real names; Bob, 
-Glenda, Jim, Burt… maybe even a 🍀🕶️💰🔫 = “Gangster Leprechaun”, 
-you never know.
+3. Run it, and never be boring again.
+
 
 >💡 Project Vibe
 
