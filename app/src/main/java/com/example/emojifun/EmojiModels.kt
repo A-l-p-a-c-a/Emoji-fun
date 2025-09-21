@@ -1,9 +1,4 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a//dev/null b/app/src/main/java/com/example/emojifun/EmojiModels.kt
-index 0000000000000000000000000000000000000000..f44b4c7f1ec8bf7db3d43b6a6480cc68ade04d11 100644
---- a//dev/null
-+++ b/app/src/main/java/com/example/emojifun/EmojiModels.kt
-@@ -0,0 +1,24 @@
+
 +package com.example.emojifun
 +
 +data class EmojiDefinition(
