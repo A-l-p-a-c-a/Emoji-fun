@@ -1,9 +1,4 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a//dev/null b/app/src/androidTest/java/com/example/emojifun/MainActivityTest.kt
-index 0000000000000000000000000000000000000000..47a0006292a07e6776aee9e03c370e9b8f811bc9 100644
---- a//dev/null
-+++ b/app/src/androidTest/java/com/example/emojifun/MainActivityTest.kt
-@@ -0,0 +1,31 @@
+
 +package com.example.emojifun
 +
 +import androidx.compose.ui.test.assertIsDisplayed
