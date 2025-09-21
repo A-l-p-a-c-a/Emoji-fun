@@ -24,5 +24,4 @@
 +    val suggestions: List<EmojiSuggestion>
 +)
  
-EOF
-)
+
