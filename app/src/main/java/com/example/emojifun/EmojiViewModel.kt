@@ -1,4 +1,3 @@
-
 package com.example.emojifun
 
 import android.app.Application
@@ -61,6 +60,6 @@ data class EmojiUiState(
     val isLoading: Boolean = false,
     val errorMessage: String? = null
 
- 
+    }
     }
     }
