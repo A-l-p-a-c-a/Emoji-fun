@@ -250,5 +250,3 @@
 +
 +exec "$JAVACMD" "$@"
  
-EOF
-)
