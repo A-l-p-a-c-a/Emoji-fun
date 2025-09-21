@@ -60,6 +60,6 @@ data class EmojiUiState(
     val suggestions: List<EmojiSuggestion> = emptyList(),
     val isLoading: Boolean = false,
     val errorMessage: String? = null
-)
+
  
 
