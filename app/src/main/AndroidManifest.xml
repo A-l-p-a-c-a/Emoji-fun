@@ -1,9 +1,4 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a//dev/null b/app/src/main/AndroidManifest.xml
-index 0000000000000000000000000000000000000000..08be29e3ede6ea35d2f62b80b3f6de74bd9f6565 100644
---- a//dev/null
-+++ b/app/src/main/AndroidManifest.xml
-@@ -0,0 +1,22 @@
+
 +<?xml version="1.0" encoding="utf-8"?>
 +<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 +    <application
