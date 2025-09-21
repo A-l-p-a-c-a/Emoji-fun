@@ -1,0 +1,15 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a//dev/null b/app/src/main/res/values/strings.xml
+index 0000000000000000000000000000000000000000..3bb7785526b6d177d2a592e0213d81a4c66b0654 100644
+--- a//dev/null
++++ b/app/src/main/res/values/strings.xml
+@@ -0,0 +1,6 @@
++<resources>
++    <string name="app_name">Emoji Fun</string>
++    <string name="search_hint">Search by emoji or keyword</string>
++    <string name="suggestions_title">Suggested Combos</string>
++    <string name="no_results">No emojis match your search.</string>
++</resources>
+ 
+EOF
+)
