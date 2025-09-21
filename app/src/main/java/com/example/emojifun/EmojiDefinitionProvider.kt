@@ -5,4 +5,4 @@
 +    suspend fun getEmojiDefinitions(): List<EmojiDefinition>
 +}
 
-)
+
