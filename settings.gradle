@@ -1,9 +1,4 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a//dev/null b/settings.gradle
-index 0000000000000000000000000000000000000000..0938c97b97c117f6d88956d2db373adb3fe2866c 100644
---- a//dev/null
-+++ b/settings.gradle
-@@ -0,0 +1,16 @@
+
 +pluginManagement {
 +    repositories {
 +        google()
