@@ -1,9 +1,3 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a//dev/null b/gradlew.bat
-index 0000000000000000000000000000000000000000..5eed7ee8452842305a18a4eb967442683808226a 100644
---- a//dev/null
-+++ b/gradlew.bat
-@@ -0,0 +1,94 @@
 +@rem
 +@rem Copyright 2015 the original author or authors.
 +@rem
