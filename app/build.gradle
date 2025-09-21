@@ -91,5 +91,4 @@
 +    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
 +}
  
-EOF
-)
+
