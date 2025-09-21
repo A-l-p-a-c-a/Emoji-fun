@@ -1,0 +1,20 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a//dev/null b/app/src/main/res/drawable/ic_launcher_foreground.xml
+index 0000000000000000000000000000000000000000..9ab4fcf5f6454a89503e5091d06d0399b6a36341 100644
+--- a//dev/null
++++ b/app/src/main/res/drawable/ic_launcher_foreground.xml
+@@ -0,0 +1,11 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="108dp"
++    android:height="108dp"
++    android:viewportWidth="108"
++    android:viewportHeight="108">
++    <group android:scaleX="0.5" android:scaleY="0.5" android:translateX="27" android:translateY="27">
++        <path
++            android:fillColor="@android:color/white"
++            android:pathData="M54,20c-18.8,0 -34,15.2 -34,34s15.2,34 34,34 34,-15.2 34,-34 -15.2,-34 -34,-34zm0,8c14.4,0 26,11.6 26,26s-11.6,26 -26,26 -26,-11.6 -26,-26 11.6,-26 26,-26zm-16,20a4,4 0 1,0 0,8 4,4 0 1,0 0,-8zm32,0a4,4 0 1,0 0,8 4,4 0 1,0 0,-8zm-32.4,21.2c3.6,6.2 10.3,10.8 18.4,10.8s14.8,-4.6 18.4,-10.8c-3,-1.9 -10.3,-5.2 -18.4,-5.2s-15.4,3.3 -18.4,5.2z" />
++    </group>
++</vector>
+ 
+EOF
+)
