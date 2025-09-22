@@ -250,5 +250,3 @@ eval "set -- $(
 
 exec "$JAVACMD" "$@"
  
-EOF
-)
