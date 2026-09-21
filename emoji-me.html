@@ -1,0 +1,808 @@
+<title>Emoji Me</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#1a0e2e;
+    --bg-deep-2:#150a26;
+    --surface:#2b1a4a;
+    --surface-2:#3a2461;
+    --surface-line:#4d3378;
+    --gold:#ffc857;
+    --gold-soft:#ffdf94;
+    --violet:#a855f7;
+    --pink:#ec4899;
+    --blue:#38bdf8;
+    --green:#34d399;
+    --text:#f3ecff;
+    --text-muted:#b9a8d9;
+    --shadow:rgba(10,4,20,.55);
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    min-height:100%;
+    background:
+      radial-gradient(60% 40% at 15% 8%, rgba(168,85,247,.25), transparent 60%),
+      radial-gradient(50% 35% at 90% 12%, rgba(56,189,248,.18), transparent 60%),
+      radial-gradient(70% 50% at 50% 100%, rgba(236,72,153,.16), transparent 60%),
+      var(--bg-deep-2);
+    color:var(--text);
+    font-family:'Nunito',system-ui,sans-serif;
+    padding-inline:16px;
+    padding-block: max(28px, env(safe-area-inset-top,0px)) max(28px, env(safe-area-inset-bottom,0px));
+    display:flex;
+    justify-content:center;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  .blob{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(50px);
+    opacity:.35;
+    z-index:0;
+    pointer-events:none;
+  }
+  .blob-a{width:280px;height:280px;top:-80px;left:-80px;background:var(--violet);animation:float-a 14s ease-in-out infinite;}
+  .blob-b{width:220px;height:220px;bottom:5%;right:-60px;background:var(--pink);animation:float-b 17s ease-in-out infinite;}
+  .blob-c{width:180px;height:180px;top:45%;left:60%;background:var(--blue);animation:float-c 20s ease-in-out infinite;}
+
+  @keyframes float-a{
+    0%,100%{transform:translate3d(0,0,0) rotate(0deg);}
+    50%{transform:translate3d(30px,40px,0) rotate(20deg);}
+  }
+  @keyframes float-b{
+    0%,100%{transform:translate3d(0,0,0) rotate(0deg);}
+    50%{transform:translate3d(-25px,-35px,0) rotate(-15deg);}
+  }
+  @keyframes float-c{
+    0%,100%{transform:translate3d(0,0,0) scale(1);}
+    50%{transform:translate3d(-20px,25px,0) scale(1.12);}
+  }
+
+  .app{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:460px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+
+  .machine{
+    background:linear-gradient(180deg, var(--surface), var(--bg-deep));
+    border:1px solid var(--surface-line);
+    border-radius:28px;
+    padding:26px 22px;
+    box-shadow:0 24px 60px var(--shadow), inset 0 1px 0 rgba(255,255,255,.06);
+    text-align:center;
+  }
+  .machine h1{
+    font-family:'Fredoka',system-ui,sans-serif;
+    font-weight:700;
+    font-size:clamp(28px,7vw,36px);
+    margin:0;
+    letter-spacing:.5px;
+    background:linear-gradient(90deg, var(--gold-soft), var(--gold));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    text-wrap:balance;
+  }
+  .machine .sub{
+    margin:6px 0 16px;
+    font-family:'Fredoka',system-ui,sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:2.5px;
+    color:var(--text-muted);
+    text-transform:uppercase;
+  }
+  .dots{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:16px;
+  }
+  .dots span{
+    width:26px;height:26px;border-radius:50%;
+    box-shadow:inset 0 -4px 8px rgba(0,0,0,.25), 0 2px 6px rgba(0,0,0,.3);
+    animation:bob 3.6s ease-in-out infinite;
+  }
+  .dots span:nth-child(1){background:linear-gradient(160deg,#ffd873,#f5a623);animation-delay:0s;}
+  .dots span:nth-child(2){background:linear-gradient(160deg,#c98bff,var(--violet));animation-delay:.15s;}
+  .dots span:nth-child(3){background:linear-gradient(160deg,#6ee7b7,var(--green));animation-delay:.3s;}
+  .dots span:nth-child(4){background:linear-gradient(160deg,#7dd3fc,var(--blue));animation-delay:.45s;}
+  .dots span:nth-child(5){background:linear-gradient(160deg,#fb923c,#ea580c);animation-delay:.6s;}
+  @keyframes bob{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-6px);}
+  }
+  .tagline{
+    margin:0;
+    color:var(--text-muted);
+    font-weight:700;
+    font-size:14.5px;
+  }
+
+  .tabs{
+    display:flex;
+    background:var(--surface);
+    border:1px solid var(--surface-line);
+    border-radius:16px;
+    padding:5px;
+    gap:4px;
+  }
+  .tab{
+    flex:1;
+    border:none;
+    background:transparent;
+    color:var(--text-muted);
+    font-family:'Nunito',sans-serif;
+    font-weight:800;
+    font-size:13.5px;
+    padding:10px 6px;
+    border-radius:12px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    transition:background .18s ease, color .18s ease, transform .12s ease;
+  }
+  .tab[aria-selected="true"]{
+    background:linear-gradient(180deg, var(--surface-2), #241640);
+    color:var(--text);
+    box-shadow:0 4px 10px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.08);
+  }
+  .tab:active{transform:scale(.97);}
+
+  .panel{
+    background:var(--surface);
+    border:1px solid var(--surface-line);
+    border-radius:22px;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .panel h2{
+    margin:0;
+    font-size:16px;
+    font-weight:800;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .panel p.hint{margin:0;color:var(--text-muted);font-size:13px;font-weight:600;line-height:1.4;}
+
+  label.field-label{
+    font-size:12.5px;
+    font-weight:800;
+    color:var(--text-muted);
+    letter-spacing:.4px;
+  }
+
+  input[type="text"], textarea{
+    width:100%;
+    background:var(--bg-deep);
+    border:1.5px solid var(--surface-line);
+    border-radius:14px;
+    color:var(--text);
+    font-family:'Nunito',sans-serif;
+    font-weight:700;
+    font-size:16px;
+    padding:14px 16px;
+    outline:none;
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  input[type="text"]::placeholder, textarea::placeholder{color:#6b5a92;font-weight:600;}
+  input[type="text"]:focus, textarea:focus{
+    border-color:var(--violet);
+    box-shadow:0 0 0 3px rgba(168,85,247,.25);
+  }
+  textarea{resize:vertical;min-height:70px;font-size:15px;}
+
+  .limit-row{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .limit-row input[type="number"]{
+    width:76px;
+    background:var(--bg-deep);
+    border:1.5px solid var(--surface-line);
+    border-radius:12px;
+    color:var(--text);
+    font-family:'Nunito',sans-serif;
+    font-weight:800;
+    font-size:15px;
+    padding:9px 10px;
+    outline:none;
+    text-align:center;
+  }
+  .limit-row input[type="number"]:focus{border-color:var(--violet);}
+
+  .pop-btn{
+    border:none;
+    border-radius:16px;
+    padding:15px 18px;
+    font-family:'Fredoka',sans-serif;
+    font-weight:600;
+    font-size:17px;
+    color:#2a1245;
+    background:linear-gradient(180deg, var(--gold-soft), var(--gold));
+    box-shadow:0 6px 0 #b8860b, 0 10px 24px rgba(255,200,87,.25);
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    transition:transform .08s ease, box-shadow .08s ease;
+  }
+  .pop-btn:active{transform:translateY(4px);box-shadow:0 2px 0 #b8860b, 0 4px 12px rgba(255,200,87,.2);}
+
+  .btn-row{display:flex;gap:10px;}
+  .btn-row .pop-btn{flex:1;}
+  .ghost-btn{
+    border:1.5px solid var(--surface-line);
+    background:var(--surface-2);
+    color:var(--text);
+    border-radius:16px;
+    padding:15px 16px;
+    font-family:'Nunito',sans-serif;
+    font-weight:800;
+    font-size:14.5px;
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    transition:transform .08s ease, background .15s ease;
+  }
+  .ghost-btn:active{transform:scale(.97);}
+
+  .link-btn{
+    background:none;border:none;color:var(--blue);font-weight:800;font-size:13px;
+    cursor:pointer;text-decoration:underline;padding:2px 0;align-self:flex-start;
+  }
+
+  .capsule-card{
+    background:linear-gradient(180deg, var(--surface), var(--bg-deep));
+    border:1px solid var(--surface-line);
+    border-radius:22px;
+    padding:22px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .capsule-card h3{
+    margin:0;
+    font-family:'Fredoka',sans-serif;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+  }
+  .bubble-row{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:14px;
+    min-height:64px;
+  }
+  .bubble{
+    position:relative;
+    width:58px;height:58px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;
+    background:radial-gradient(circle at 32% 28%, rgba(255,255,255,.35), transparent 45%),
+               linear-gradient(160deg, var(--surface-2), var(--bg-deep));
+    border:1px solid var(--surface-line);
+    box-shadow:0 6px 14px rgba(0,0,0,.35);
+    cursor:pointer;
+    animation:pop-in .45s cubic-bezier(.2,1.6,.4,1) backwards;
+  }
+  .bubble .orbit{
+    position:absolute;
+    inset:-6px;
+    border-radius:50%;
+    pointer-events:none;
+  }
+  .bubble .orbit::after{
+    content:"";
+    position:absolute;
+    width:7px;height:7px;
+    border-radius:50%;
+    background:var(--gold);
+    top:0; left:50%;
+    box-shadow:0 0 6px var(--gold);
+    animation:orbit-spin 3.2s linear infinite;
+  }
+  .bubble:nth-child(5n+1) .orbit::after{background:var(--pink);box-shadow:0 0 6px var(--pink);animation-duration:2.8s;}
+  .bubble:nth-child(5n+2) .orbit::after{background:var(--blue);box-shadow:0 0 6px var(--blue);animation-duration:3.6s;animation-direction:reverse;}
+  .bubble:nth-child(5n+3) .orbit::after{background:var(--green);box-shadow:0 0 6px var(--green);animation-duration:3.1s;}
+  .bubble:active{transform:scale(.9);}
+  .bubble.copied{box-shadow:0 0 0 3px var(--green), 0 6px 14px rgba(0,0,0,.35);}
+
+  @keyframes pop-in{
+    0%{opacity:0; transform:scale(.3) translateY(10px);}
+    70%{opacity:1; transform:scale(1.08) translateY(-2px);}
+    100%{opacity:1; transform:scale(1) translateY(0);}
+  }
+  @keyframes orbit-spin{
+    from{transform:rotate(0deg) translateX(31px) rotate(0deg);}
+    to{transform:rotate(360deg) translateX(31px) rotate(-360deg);}
+  }
+
+  .combo-line{
+    font-size:38px;
+    line-height:1.3;
+    word-break:break-word;
+    animation:pop-in .5s cubic-bezier(.2,1.6,.4,1);
+  }
+
+  .capsule-foot{
+    color:var(--text-muted);
+    font-weight:700;
+    font-size:12.5px;
+  }
+
+  .empty-state{
+    color:var(--text-muted);
+    font-weight:700;
+    font-size:13.5px;
+    padding:6px 4px 2px;
+  }
+
+  .meaning-card{
+    background:var(--bg-deep);
+    border:1px solid var(--surface-line);
+    border-radius:16px;
+    padding:16px;
+    text-align:left;
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .meaning-card .glyph{font-size:34px;line-height:1;}
+  .meaning-card .title{font-weight:800;font-size:14.5px;margin-bottom:3px;color:var(--gold-soft);}
+  .meaning-card .blurb{font-weight:600;font-size:13.5px;color:var(--text-muted);line-height:1.45;}
+
+  .toast{
+    position:fixed;
+    left:50%;
+    bottom:calc(24px + env(safe-area-inset-bottom,0px));
+    transform:translate(-50%, 20px);
+    background:linear-gradient(180deg, var(--surface-2), var(--bg-deep));
+    border:1px solid var(--surface-line);
+    color:var(--text);
+    font-weight:800;
+    font-size:14px;
+    padding:12px 20px;
+    border-radius:14px;
+    box-shadow:0 12px 30px var(--shadow);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease;
+    z-index:10;
+    display:flex;align-items:center;gap:8px;
+  }
+  .toast.show{opacity:1;transform:translate(-50%,0);}
+
+  footer{
+    text-align:center;
+    color:var(--text-muted);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.3px;
+    padding-bottom:4px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .blob, .dots span, .bubble, .combo-line, .orbit::after{animation:none !important;}
+  }
+</style>
+
+<div class="app">
+  <div class="blob blob-a"></div>
+  <div class="blob blob-b"></div>
+  <div class="blob blob-c"></div>
+
+  <div class="machine">
+    <h1>🌈 Emoji Me! ✨</h1>
+    <p class="sub">The Emoji Pop Machine</p>
+    <div class="dots" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <p class="tagline">Say it without saying it.</p>
+  </div>
+
+  <div class="tabs" role="tablist" aria-label="Emoji Me modes">
+    <button class="tab" id="tabbtn-find" role="tab" aria-selected="true" aria-controls="panel-find">🔍 Find</button>
+    <button class="tab" id="tabbtn-match" role="tab" aria-selected="false" aria-controls="panel-match">🧩 Match</button>
+    <button class="tab" id="tabbtn-translate" role="tab" aria-selected="false" aria-controls="panel-translate">💬 Translate</button>
+  </div>
+
+  <!-- FIND -->
+  <section class="panel" id="panel-find" role="tabpanel" aria-labelledby="tabbtn-find">
+    <h2>🔍 Find an emoji</h2>
+    <p class="hint">Tell us the vibe — "happy," "sun," "love" — and we'll pop out five that fit.</p>
+    <label class="field-label" for="find-input">What's the feeling or word?</label>
+    <input type="text" id="find-input" placeholder="e.g. peace of mind" value="happy" autocomplete="off">
+    <div class="btn-row">
+      <button class="pop-btn" id="find-pop">🎰 Pop My Emojis!</button>
+    </div>
+    <button class="link-btn" id="find-reverse-link">🔁 Or paste an emoji to find out what it means</button>
+    <div id="find-reverse-wrap" hidden style="display:flex;flex-direction:column;gap:10px;">
+      <label class="field-label" for="reverse-input">Paste an emoji</label>
+      <input type="text" id="reverse-input" placeholder="e.g. 🦦" autocomplete="off">
+      <button class="ghost-btn" id="reverse-go">🔍 What does this mean?</button>
+      <div id="reverse-result"></div>
+    </div>
+  </section>
+
+  <!-- MATCH -->
+  <section class="panel" id="panel-match" role="tabpanel" aria-labelledby="tabbtn-match" hidden>
+    <h2>🧩 Match a phrase</h2>
+    <p class="hint">Type a phrase and we'll build a little emoji combo that captures it.</p>
+    <label class="field-label" for="match-input">What phrase should we match?</label>
+    <input type="text" id="match-input" placeholder="e.g. I need peace of mind" value="peace of mind" autocomplete="off">
+    <button class="pop-btn" id="match-pop">🎰 Pop My Emojis!</button>
+  </section>
+
+  <!-- TRANSLATE -->
+  <section class="panel" id="panel-translate" role="tabpanel" aria-labelledby="tabbtn-translate" hidden>
+    <h2>💬 Translate a sentence</h2>
+    <p class="hint">Turn a whole sentence into one tight emoji message.</p>
+    <label class="field-label" for="translate-input">Your sentence</label>
+    <textarea id="translate-input" placeholder="e.g. I had to walk to school in the rain">I had to walk to school in the rain</textarea>
+    <div class="limit-row">
+      <label class="field-label" for="translate-limit">Character limit</label>
+      <input type="number" id="translate-limit" min="1" max="30" value="8">
+    </div>
+    <button class="pop-btn" id="translate-pop">🎰 Pop My Translation!</button>
+  </section>
+
+  <!-- RESULTS -->
+  <div class="capsule-card" id="results-card">
+    <h3>✨ Your Emoji Capsule ✨</h3>
+    <div id="results-body">
+      <div class="empty-state">Put your words in. Press the button. See what pops out!</div>
+    </div>
+    <div class="capsule-foot" id="results-foot" hidden>Tap any bubble to copy it.</div>
+  </div>
+
+  <footer>Made for tapping, copying, and sending. No cash required. 💜</footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  var DICT = {
+    happy:["😊","😄","🥳","😁","🤗"], joy:["😊","🎉","✨","😄"], sad:["😢","😭","💔","😞","🥺"],
+    angry:["😡","🤬","👿","💢"], mad:["😡","🔥","💢"], excited:["🤩","🎉","✨","🙌"],
+    tired:["😴","🥱","😮‍💨"], sleepy:["😴","🌙","💤"], scared:["😱","👻","😨"], afraid:["😨","😰","😱"],
+    love:["❤️","💕","😍","💘","🥰"], crush:["😍","💘","🥰"], kiss:["😘","💋"], hug:["🤗","🫂"],
+    laugh:["😂","🤣","😆"], cry:["😭","😢","💧"], cool:["😎","🆒","✨"], smart:["🧠","🤓","💡"],
+    strength:["✊","🔥","💪","❤️‍🔥"], strong:["💪","✊","🦾"], power:["⚡","🔥","✊"],
+    weak:["🥀","😮‍💨"], creativity:["🎨","✨","🖌️"], art:["🎨","🖼","✍️"], idea:["💡","✨","🧠"],
+    memory:["🧠","🔍","⏳"], reflection:["🧠","🕰️","🔍"], growth:["🌱","🌿","🌸"], healing:["🌿","💛","🫂"],
+    mystery:["🦉","🌌","🔮"], secret:["🤫","🔮","🗝"], protection:["🛡️","🧿","🐾"],
+    fight:["⚔️","🥊","💥"], battle:["⚔️","🛡️","🔥"], danger:["⚠️","🔥","💀"], warning:["⚠️","🚨"],
+    hope:["🌟","☀️","🕊"], light:["💡","☀️","✨"], dark:["🌑","🖤","🌚"], darkness:["🌑","🌚","🖤"],
+    peace:["✌️","🕊","☮️"], mind:["🧠","🧘","💭"], calm:["🌼","😌","☁️"], relax:["😌","🛁","🌿"],
+    fear:["😱","👻","😨"], ghost:["👻","🫥"], spooky:["🎃","👻","🦇"], halloween:["🎃","👻","🕸"],
+    christmas:["🎄","🎅","❄️"], holiday:["🎉","🎊","🎁"], celebration:["🎉","🥳","🎊"],
+    friend:["🫂","🤝","👯"], family:["👨‍👩‍👧‍👦","❤️","🏠"], baby:["👶","🍼","🥹"],
+    success:["🌟","🏆","🎉"], victory:["🏆","🎉","🙌"], win:["🏆","🎉","💪"], lose:["😞","💔","😩"],
+    time:["⏰","⏳","🕰️"], destiny:["🌌","✨","🔮"], luck:["🍀","🧿","🐞"], lucky:["🍀","🎰","✨"],
+    money:["💰","💵","🤑"], rich:["🤑","💎","💰"], poor:["😔","🪙"], work:["💼","💻","🛠️"],
+    school:["🏫","📚","✏️"], sleep:["😴","🛌","🌙"], dream:["💭","🌙","✨"], night:["🌙","🌃","⭐️"],
+    morning:["🌅","☀️","☕️"], sun:["☀️","🌞","🌻"], rain:["🌧️","☔️","💧"], storm:["⛈️","🌩","⚡"],
+    snow:["❄️","☃️","🌨️"], wind:["🌬️","🍃","🌀"], hot:["🔥","🥵","☀️"], cold:["🥶","❄️","🧊"],
+    coffee:["☕️","😌"], tea:["🍵"], pizza:["🍕"], food:["🍽️","😋"], hungry:["🍽️","😋","🍔"],
+    fire:["🔥"], water:["💧","🌊"], ocean:["🌊","🐚","🐬"], beach:["🏖️","🌊","☀️"],
+    music:["🎵","🎶","🎧"], dance:["💃","🕺","🎶"], party:["🎉","🥳","🎊"], birthday:["🎂","🎉","🎁"],
+    star:["⭐️","🌟","✨"], moon:["🌙","🌕","🌘"], sky:["🌌","☁️","🌤"], cloud:["☁️","🌥"],
+    rainbow:["🌈"], flower:["🌸","🌺","🌷"], tree:["🌳","🌲"], nature:["🌿","🌳","🌸"],
+    animal:["🐾","🐶","🐱"], dog:["🐶","🐕"], cat:["🐱","🐈"], otter:["🦦","🌀","💧"],
+    fish:["🐟","🐠"], bird:["🐦","🕊"], king:["👑","🤴"], queen:["👑","👸"], crown:["👑"],
+    gem:["💎"], diamond:["💎"], gold:["🥇","✨","💰"], book:["📖","📚"], travel:["✈️","🧳","🗺"],
+    plane:["✈️"], car:["🚗"], home:["🏠","🏡"], house:["🏠"], sick:["🤒","😷"], healthy:["💪","🥗"],
+    game:["🎮","🎲"], sport:["⚽️","🏀"], run:["🏃","💨"], walk:["🚶","👣"], swim:["🏊","🌊"],
+    fly:["✈️","🕊","🦅"], sing:["🎤","🎶"], write:["✍️","📝"], paint:["🎨"], code:["💻","🧑‍💻"],
+    computer:["💻"], phone:["📱"], robot:["🤖"], alien:["👽"], space:["🚀","🪐","🌌"],
+    planet:["🪐","🌍"], earth:["🌍","🌎"], magic:["✨","🔮","🪄"], dragon:["🐉"], unicorn:["🦄"],
+    thunder:["⚡","⛈️"], lightning:["⚡"], mountain:["⛰️"], river:["🌊"], forest:["🌲","🌳"],
+    desert:["🏜️"], island:["🏝️"], world:["🌍","🌎"], vibe:["✨","🌈","💫"], energy:["⚡","✨"],
+    good:["👍","✨"], bad:["👎","💀"], yes:["✅","👍"], no:["❌","🙅"], question:["❓"],
+    surprise:["😲","🎉"], shock:["😱","⚡"], sorry:["🙏","😔"], thanks:["🙏","💛"], welcome:["🤗","👋"]
+  };
+
+  var CUSTOM_MEANINGS = {
+    "✊":{title:"Inner strength", blurb:"Resilience, confidence, standing your ground."},
+    "🔥":{title:"Energy & passion", blurb:"Determination — or a fighting spirit standing through fire."},
+    "❤️‍🔥":{title:"Intense power", blurb:"Drive that feels unstoppable."},
+    "🎨":{title:"Artistic expression", blurb:"Painting, design, making something from nothing."},
+    "✨":{title:"Inspiration", blurb:"New ideas, fresh concepts, a little bit of magic."},
+    "🖌️":{title:"Creative focus", blurb:"Writing, drawing, being deep in the work."},
+    "🧠":{title:"Deep thought", blurb:"Insight, mental clarity, figuring it out."},
+    "🔍":{title:"Searching", blurb:"Curiosity, looking for the answer."},
+    "⏳":{title:"Time & patience", blurb:"Remembering, waiting, letting it unfold."},
+    "🛡️":{title:"Protection", blurb:"Endurance, standing guard, holding the line."},
+    "🌙":{title:"Darkness before light", blurb:"Overcoming struggles — or nighttime, hidden thoughts, shadow work."},
+    "🌿":{title:"Growth & healing", blurb:"Renewal, coming back stronger."},
+    "🦉":{title:"Wisdom", blurb:"Quiet understanding, night knowledge."},
+    "🌌":{title:"The unknown", blurb:"The universe, vast exploration."},
+    "⚔️":{title:"Battle", blurb:"Challenge, overcoming adversity."},
+    "🩸":{title:"Sacrifice", blurb:"Blood, struggle, what it cost to get here."},
+    "🕷️":{title:"Entanglement", blurb:"A web of challenges, obstacles."},
+    "🕯️":{title:"Small lights", blurb:"Finding direction, perseverance."},
+    "🌑":{title:"Hidden knowledge", blurb:"Dark places, night strength."},
+    "🦋":{title:"Transformation", blurb:"Lightness after dark — you made it through."},
+    "❤️":{title:"Love", blurb:"Care, deep emotion, the real thing."},
+    "💕":{title:"Growing love", blurb:"New bonds forming."},
+    "💛":{title:"Healing love", blurb:"Compassion, warmth."},
+    "👻":{title:"Lingering fears", blurb:"Ghosts, memories that stick around."},
+    "🔮":{title:"Uncertainty", blurb:"The unknown, what's next."},
+    "🌟":{title:"Success", blurb:"Goals, wishes coming true."},
+    "🎉":{title:"Celebration", blurb:"Milestones, achievements, you did it."},
+    "🏆":{title:"Victory", blurb:"Reward, overcoming the challenge."},
+    "🌼":{title:"Calmness", blurb:"Patience, inner peace."},
+    "💖":{title:"Serenity", blurb:"Healing love, softness."},
+    "☁️":{title:"Gentleness", blurb:"Soft, light thoughts."},
+    "⚠️":{title:"Caution", blurb:"Be alert, something's up."},
+    "💀":{title:"Danger", blurb:"Mortality, finality — or just dead serious."},
+    "⏰":{title:"Urgency", blurb:"Moments passing, time-bound."},
+    "🍀":{title:"Good luck", blurb:"Positive vibes headed your way."},
+    "🧿":{title:"Protection", blurb:"Guarding against negativity."},
+    "🐞":{title:"Fortune", blurb:"A positive change on the way."},
+    "🌈":{title:"Promise", blurb:"Hope, a rare opportunity."},
+    "🦦":{title:"Otter energy", blurb:"Playful, a little chaotic, spins in circles and loves it."}
+  };
+
+  var STOPWORDS = new Set(["i","a","an","the","to","my","me","have","has","had","was","were","is","am","are",
+    "in","on","at","of","for","and","but","so","it","that","this","be","do","did","does","you","your",
+    "we","us","our","he","she","they","them","with","as","by","or","if","just","really","very","im","i'm",
+    "had","got","get","need","want","feel","feeling","like"]);
+
+  var ALL_WORDS = Object.keys(DICT);
+  var GENERIC_POOL = ["✨","🌈","💫","🔥","🌟","💕","🎉","😊","🌸","⚡"];
+
+  function cleanWords(text){
+    return text.toLowerCase()
+      .replace(/[^a-z0-9'\s]/g," ")
+      .split(/\s+/)
+      .filter(function(w){ return w && !STOPWORDS.has(w); });
+  }
+
+  function bestKeyword(words){
+    for (var i = words.length - 1; i >= 0; i--){
+      if (DICT[words[i]]) return words[i];
+    }
+    // try singularizing a trailing 's'
+    for (var j = words.length - 1; j >= 0; j--){
+      var w = words[j];
+      if (w.endsWith("s") && DICT[w.slice(0,-1)]) return w.slice(0,-1);
+    }
+    return null;
+  }
+
+  function shuffleArr(arr){
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  function uniq(arr){
+    return arr.filter(function(v,i){ return arr.indexOf(v) === i; });
+  }
+
+  // ---------- state ----------
+  var state = { findKey: null, findShown: [] };
+
+  // ---------- tabs ----------
+  var tabs = ["find","match","translate"];
+  tabs.forEach(function(name){
+    document.getElementById("tabbtn-" + name).addEventListener("click", function(){
+      tabs.forEach(function(n){
+        document.getElementById("tabbtn-" + n).setAttribute("aria-selected", n === name ? "true" : "false");
+        document.getElementById("panel-" + n).hidden = n !== name;
+      });
+    });
+  });
+
+  // ---------- toast ----------
+  var toastEl = document.getElementById("toast");
+  var toastTimer = null;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove("show"); }, 1500);
+  }
+
+  function copyText(text, el){
+    function done(ok){
+      if (ok){
+        toast("✨ Copied!");
+        if (el){
+          el.classList.add("copied");
+          setTimeout(function(){ el.classList.remove("copied"); }, 700);
+        }
+      } else {
+        toast("Couldn't copy — long-press to copy manually");
+      }
+    }
+    try{
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){ done(true); }).catch(function(){ done(false); });
+        return;
+      }
+    }catch(e){}
+    try{
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      done(ok);
+    }catch(e){
+      done(false);
+    }
+  }
+
+  // ---------- results rendering ----------
+  var resultsBody = document.getElementById("results-body");
+  var resultsFoot = document.getElementById("results-foot");
+
+  function renderBubbles(emojiList, comboMode){
+    resultsBody.innerHTML = "";
+    resultsFoot.hidden = emojiList.length === 0;
+
+    if (comboMode){
+      var line = document.createElement("div");
+      line.className = "combo-line";
+      line.textContent = emojiList.join(" ");
+      line.tabIndex = 0;
+      line.addEventListener("click", function(){ copyText(emojiList.join(""), null); });
+      resultsBody.appendChild(line);
+      return;
+    }
+
+    var row = document.createElement("div");
+    row.className = "bubble-row";
+    emojiList.forEach(function(e, idx){
+      var b = document.createElement("button");
+      b.className = "bubble";
+      b.style.animationDelay = (idx * 0.06) + "s";
+      b.setAttribute("aria-label", "Copy " + e);
+      var orbit = document.createElement("span");
+      orbit.className = "orbit";
+      var glyph = document.createElement("span");
+      glyph.textContent = e;
+      b.appendChild(orbit);
+      b.appendChild(glyph);
+      b.addEventListener("click", function(){ copyText(e, b); });
+      row.appendChild(b);
+    });
+    resultsBody.appendChild(row);
+  }
+
+  function renderEmpty(msg){
+    resultsBody.innerHTML = '<div class="empty-state">' + msg + '</div>';
+    resultsFoot.hidden = true;
+  }
+
+  // ---------- FIND ----------
+  var findInput = document.getElementById("find-input");
+  document.getElementById("find-pop").addEventListener("click", function(){
+    var words = cleanWords(findInput.value);
+    var key = bestKeyword(words);
+    var pool;
+    if (key){
+      pool = uniq(DICT[key].concat(GENERIC_POOL));
+      state.findKey = key;
+    } else {
+      pool = shuffleArr(ALL_WORDS).slice(0,6).reduce(function(acc,w){ return acc.concat(DICT[w]); }, []);
+      pool = uniq(pool.concat(GENERIC_POOL));
+      state.findKey = null;
+    }
+    state.findShown = pool.slice(0,5);
+    if (state.findShown.length < 5){
+      state.findShown = uniq(state.findShown.concat(GENERIC_POOL)).slice(0,5);
+    }
+    state.findPool = pool;
+    renderBubbles(state.findShown, false);
+    if (!document.getElementById("shuffle-find")){
+      var sh = document.createElement("button");
+      sh.className = "ghost-btn";
+      sh.id = "shuffle-find";
+      sh.textContent = "🔄 Shuffle";
+      sh.style.marginTop = "2px";
+      sh.addEventListener("click", function(){
+        var remaining = state.findPool.filter(function(e){ return state.findShown.indexOf(e) === -1; });
+        var next;
+        if (remaining.length >= 5){
+          next = shuffleArr(remaining).slice(0,5);
+        } else {
+          next = uniq(remaining.concat(shuffleArr(state.findPool))).slice(0,5);
+        }
+        state.findShown = next;
+        renderBubbles(next, false);
+      });
+      document.getElementById("panel-find").querySelector(".btn-row").appendChild(sh);
+    }
+  });
+
+  document.getElementById("find-reverse-link").addEventListener("click", function(){
+    var wrap = document.getElementById("find-reverse-wrap");
+    wrap.hidden = !wrap.hidden;
+  });
+
+  document.getElementById("reverse-go").addEventListener("click", function(){
+    var raw = document.getElementById("reverse-input").value.trim();
+    var out = document.getElementById("reverse-result");
+    if (!raw){ out.innerHTML = ""; return; }
+    var first = Array.from(raw)[0];
+    var meaning = CUSTOM_MEANINGS[first];
+    if (meaning){
+      out.innerHTML = '<div class="meaning-card"><div class="glyph">' + first + '</div>' +
+        '<div><div class="title">' + meaning.title + '</div><div class="blurb">' + meaning.blurb + '</div></div></div>';
+    } else {
+      var vibes = ["mysterious","chaotic-good","main character","cozy","unbothered","dramatic"];
+      var vibe = vibes[Math.floor(Math.random()*vibes.length)];
+      out.innerHTML = '<div class="meaning-card"><div class="glyph">' + first + '</div>' +
+        '<div><div class="title">No official read on this one yet</div>' +
+        '<div class="blurb">But it\'s giving ' + vibe + ' energy. ✨</div></div></div>';
+    }
+  });
+
+  // ---------- MATCH ----------
+  document.getElementById("match-pop").addEventListener("click", function(){
+    var words = cleanWords(document.getElementById("match-input").value);
+    var combo = [];
+    words.forEach(function(w){
+      var e = DICT[w] ? DICT[w][0] : (DICT[w.replace(/s$/,"")] ? DICT[w.replace(/s$/,"")][0] : null);
+      if (e && combo.indexOf(e) === -1) combo.push(e);
+    });
+    if (combo.length === 0){
+      combo = shuffleArr(GENERIC_POOL).slice(0,3);
+    }
+    combo = combo.slice(0,4);
+    renderBubbles(combo, true);
+  });
+
+  // ---------- TRANSLATE ----------
+  document.getElementById("translate-pop").addEventListener("click", function(){
+    var text = document.getElementById("translate-input").value;
+    var limit = parseInt(document.getElementById("translate-limit").value, 10) || 8;
+    var words = cleanWords(text);
+    var out = [];
+    words.forEach(function(w){
+      var e = DICT[w] ? DICT[w][0] : (DICT[w.replace(/s$/,"")] ? DICT[w.replace(/s$/,"")][0] : null);
+      if (e) out.push(e);
+    });
+    if (out.length === 0) out = ["🤔"];
+    while (Array.from(out.join("")).length > limit && out.length > 1){
+      out.pop();
+    }
+    var joined = Array.from(out.join("")).slice(0,limit).join("");
+    if (!joined) joined = out[0] || "🤔";
+    renderBubbles(Array.from(joined), true);
+  });
+
+})();
+</script>
